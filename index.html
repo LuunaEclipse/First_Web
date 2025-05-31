@@ -72,8 +72,7 @@
             temp.setAttribute('href', 'touch.css');
         }
         else {
-            element.parentNode.removeChild(element);
-            temp.setAttribute('href', 'touch.css');
+            temp.setAttribute('href', 'index.css');
         }
 
         function Click(x) {
@@ -83,7 +82,7 @@
         let bool = false;
 
         function toggleNav() {
-            if (true) {
+            if ((/Android|iPhone/i.test(navigator.userAgent))) {
                 if (bool) {
                     document.getElementById("mySidenav").style.height = "0";
                 } else {
