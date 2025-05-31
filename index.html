@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id = "theme1" rel="stylesheet" href="index.css">
-    <link id = "theme" rel="stylesheet" href="index.css">
+    <link id="style" rel="stylesheet" href="index.css">
+    <link id="theme" rel="stylesheet" href="dark.css">
     <title>SZLG Bulvár</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="parallax">
     <header>
-        <div class="spacer"></div>
+        <div id="spacer"></div>
         <h1><span id="titlestyle">SZLG</span> bulvár</h1>
         <div class="menubutton" onclick="Click(this);toggleNav()">
             <div class="bar1"></div>
@@ -21,10 +26,18 @@
             <div class="bar3"></div>
         </div>
     </header>
+    <div id="mySidenav" class="sidenav">
+        <div id="randomid">
+            <a id="inline" onclick="toggleTheme()" href=#>Téma</a>
+            <a id="inline" href="#">Github</a>
+            <a id="inline" href="#">Lol</a>
+            <a id="inline" href="#">Rakjak</a>
+        </div>
+    </div>
     <main>
         <section class="container">
             <a href="https://www.youtube.com/watch?v=JALbemLw3G4">
-                <article class = "box" id="im1">
+                <article class="box" id="im1">
                     <h3>Lehet nem jár VILLAMOS az iskolához?</h3>
                 </article>
             </a>
@@ -47,26 +60,42 @@
         <br><span id="co2">E-mail:</span> lele28188@gmail.com
         <br><span id="co2">Discord:</span> luunaeclipse
     </footer>
-    <div id="mySidenav" class="sidenav">
-        <a onclick="toggleTheme()" href=#>Téma</a>
-        <a href="#">Github</a>
-        <a href="#">Lol</a>
-        <a href="#">Rakjak</a>
-      </div>
 
     <script>
+        // TOUCHSCREEN DETECTION
+
+        let temp = document.getElementById('style');
+        let element = document.getElementById("spacer");
+
+        if ((/Android|iPhone/i.test(navigator.userAgent))) {
+            element.parentNode.removeChild(element);
+            temp.setAttribute('href', 'touch.css');
+        }
+        else {
+            element.parentNode.removeChild(element);
+            temp.setAttribute('href', 'touch.css');
+        }
+
         function Click(x) {
-          x.classList.toggle("change");
+            x.classList.toggle("change");
         }
 
         let bool = false;
 
-        /* Set the width of the side navigation to 250px */
         function toggleNav() {
-            if(bool){
-                document.getElementById("mySidenav").style.width = "0";
-            }else{
-                document.getElementById("mySidenav").style.width = "250px";
+            if (true) {
+                if (bool) {
+                    document.getElementById("mySidenav").style.height = "0";
+                } else {
+                    document.getElementById("mySidenav").style.height = "15vw";
+                }
+            }
+            else {
+                if (bool) {
+                    document.getElementById("mySidenav").style.width = "0";
+                } else {
+                    document.getElementById("mySidenav").style.width = "250px";
+                }
             }
             bool = !bool;
         }
@@ -74,17 +103,14 @@
         changeButton.addEventListener('click', switchTheme);
 
         function toggleTheme() {
-            // Select the <link> element
             let theme = document.getElementById('theme');
-
-            // Toggle between light.css and dark.css
             if (theme.getAttribute('href') == 'light.css') {
-                theme.setAttribute('href', 'index.css');
+                theme.setAttribute('href', 'dark.css');
             } else {
                 theme.setAttribute('href', 'light.css');
             }
         }
-        </script>
-
+    </script>
 </body>
+
 </html>
